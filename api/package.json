@@ -1,5 +1,5 @@
 {
-  "name": "starter-api",
+  "name": "sass-api-starter",
   "version": "0.0.1",
   "description": "A starter kit for creating restful APIs with user authentication via JWT tokens.",
   "main": "index.js",

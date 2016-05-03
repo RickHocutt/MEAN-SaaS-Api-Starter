@@ -1,5 +1,5 @@
 {
-  "name": "starter-ui-front",
+  "name": "sass-api-starter-client",
   "version": "1.0.0",
   "scripts": {
     "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
