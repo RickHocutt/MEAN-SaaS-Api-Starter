@@ -15,9 +15,9 @@ To start the client run `npm start` in the /client directory.
 Point your browser to your api setup route (out of the box, it will run at http://localhost:8080/api/setup) which will install an admin user for you to test.
 
 ## Dependencies
-This project requires MongoDB and Angular2. You will need to [mongoInstall]. 
+This project requires MongoDB and Angular2. You will need to [install MongoDB]. 
 You may also need to do some extra work to get Angular2 working on your system, but in theory, NPM install should take care of that dependency.
 
-[mongoInstall]: https://docs.mongodb.org/manual/installation/ "install MongoDB"
+[install MongoDB]: https://docs.mongodb.org/manual/installation/
 
 Please let me know if you have problems with installation at harvey[at]harveyramer[dot]com.
