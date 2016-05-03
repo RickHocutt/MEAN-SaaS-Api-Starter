@@ -2,5 +2,7 @@ node_modules
 .DS_Store
 .vscode
 typings
-client/*.js
-client/*.map
+client/*/*/*.js
+client/*/*/*.map
+client/*/*.js
+client/*/*.map
