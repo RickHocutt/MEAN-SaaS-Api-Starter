@@ -5,7 +5,13 @@ A starter API with Node, Express, MongoDB, JWT tokens, Angular 2, TypeScript and
 Run `npm install` in /api and /client directories.
 
 ### Configure
-The API endpoint is defined for the client in /client/app/config.ts, and the Client endpoint is defined for the API in /api/config.js as `clientUrl`. That same file contains a `secret` used to sign the JWT tokens used by your app along with some other self-explanatory settings for JWT. To successfully send email, you will need to visit http://www.sendgrid.com to request an API key and configure your free account.
+The API endpoint is defined for the client in `/client/app/config.ts`.
+
+The client endpoint is defined for the API in `/api/config.js` as `clientUrl`. That same file contains a `secret` used to sign the JWT tokens used by your app along with some other self-explanatory settings for JWT. 
+
+To successfully send email, you will need to visit http://www.sendgrid.com to request an API key and configure your free account. Enter the key in `/api/config.js` `sendgridKey`.
+
+The MongoDB connection also must be configured in `/api/config.js` using the `database` property.
 
 ### Run
 To start the API, run `node index` in the /api directory.
