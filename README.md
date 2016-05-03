@@ -12,7 +12,8 @@ To start the API, run `node index` in the /api directory.
 To start the client run `npm start` in the /client directory.
 
 ## First Run
-Point your browser to your api setup route (out of the box, it will run at http://localhost:8080/api/setup) which will install an admin user for you to test.
+Point your browser to your api setup route (out of the box, it will run at [localhost:8080/api/setup]) which will install an admin user for you to test.
+[localhost:8080/api/setup]: http://localhost:8080/api/setup
 
 ## Dependencies
 This project requires MongoDB and Angular2. You will need to [install MongoDB]. 
