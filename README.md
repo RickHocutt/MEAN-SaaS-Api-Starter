@@ -4,18 +4,23 @@ A starter API with Node, Express, MongoDB, JWT tokens, Angular 2, TypeScript and
 ## Install
 Run `npm install` in /api and /client directories.
 
-## Configure
+### Configure
 The API endpoint is defined for the client in /client/app/config.ts, and the Client endpoint is defined for the API in /api/config.js as `clientUrl`. That same file contains a `secret` used to sign the JWT tokens used by your app along with some other self-explanatory settings for JWT. To successfully send email, you will need to visit http://www.sendgrid.com to request an API key and configure your free account.
 
-## Run
+### Run
 To start the API, run `node index` in the /api directory.
 To start the client run `npm start` in the /client directory.
 
-## First Run
+#### First Run
 Point your browser to your api setup route (out of the box, it will run at [localhost:8080/api/setup]) which will install an admin user for you to test.
 [localhost:8080/api/setup]: http://localhost:8080/api/setup
 
-## Dependencies
+After running the first run script, visit your client (out of the box at [localhost:8180] and log in with the user the setup script returns.
+[localhost:8180]: http://localhost:8180
+[homeImage]
+[homeImage]: https://raw.githubusercontent.com/harveyramer/sass-api-starter/master/home-page.png
+
+### Dependencies
 This project requires MongoDB and Angular2. You will need to [install MongoDB]. 
 You may also need to do some extra work to get Angular2 working on your system, but in theory, NPM install should take care of that dependency.
 
