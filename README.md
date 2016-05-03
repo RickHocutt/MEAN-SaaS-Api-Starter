@@ -17,7 +17,7 @@ Point your browser to your api setup route (out of the box, it will run at [loca
 
 After running the first run script, visit your client (out of the box at [localhost:8180] and log in with the user the setup script returns.
 [localhost:8180]: http://localhost:8180
-[homeImage]
+![homeImage][]
 [homeImage]: https://raw.githubusercontent.com/harveyramer/sass-api-starter/master/home-page.png
 
 ### Dependencies
