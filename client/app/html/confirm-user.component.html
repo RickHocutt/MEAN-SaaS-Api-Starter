@@ -1,0 +1,3 @@
+<h1>Confirming Your Account ...</h1>
+        <div *ngIf="success" class="alert alert-success">Yay! Your account is confirmed. <a [routerLink]="['/Auth/Login']">Log in here</a>.</div>
+        <div *ngIf="error" class="alert alert-danger">We weren't able to confirm your account.</div>

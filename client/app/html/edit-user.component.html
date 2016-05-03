@@ -1,0 +1,52 @@
+
+    <h1>Edit</h1>
+    <form (ngSubmit)="handleSubmit()" [ngFormModel]="editUserForm">
+        <div *ngIf="error" class="alert alert-danger">
+            <p *ngFor="#error of errors; #i=index">{{error}}</p>
+        </div>
+        <div *ngIf="success" class="alert alert-success">User updated successfully.</div>
+        <div class="form-group" [ngClass]="{'has-error': username.touched && !username.valid, 'has-success': username.valid}">
+            <label for="username">Username</label>
+            <input [ngFormControl]="editUserForm.controls['username']" type="text" class="form-control" required />
+        
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': editUserForm.controls.passwords.dirty && !editUserForm.controls.passwords.valid, 'has-success': editUserForm.controls.passwords.valid}">
+            <label>Password</label>
+            <p *ngIf="!changingPassword"><a class="btn btn-xs btn-default" (click)="changePassword()">Change password</a></p>
+            <div *ngIf="changingPassword">
+                <p>
+                    <input  [ngFormControl]="editUserForm.controls.passwords.controls['password']" type="password" class="form-control" required />
+                </p>
+                <p>
+                    <label>Confirm Password</label>
+                    <input  [ngFormControl]="editUserForm.controls.passwords.controls['verifyPassword']" type="password" class="form-control" required />
+                    <span class="help-block" *ngIf="!editUserForm.controls.passwords.valid && editUserForm.controls.passwords.dirty">Passwords don't match.</span>
+                </p>
+                <p><a class="btn btn-xs btn-default" (click)="cancelChangePassword()">Cancel password change</a></p>
+            </div>
+        </div>
+        <div class="form-group">  <!--[ngClass]="{'has-error': roles.touched && !roles.valid, 'has-success': roles.valid}">-->
+            <label>Roles</label>
+            <p><span *ngFor="#role of roles; #isLast=last">{{role.label}}{{isLast ? '' : ', '}}</span><span *ngIf="roles && !roles.length">None assigned</span> <a *ngIf="!changingRoles && isAdmin" class="btn btn-xs btn-default" (click)="goToChangeRoles()">Change roles</a></p>
+                <label *ngFor="#option of availableRoles">
+                    <input type="checkbox" [disabled]="currentUserIsAdmin() && option.label == 'admin'" [checked]="roleAlreadyAdded(option)" (change)="updateRoles(option, rolecb.checked)" #rolecb [value]="option._id" />{{option.label}}
+                </label>
+                <p class="helper-text" *ngIf="currentUserIsAdmin() && availableRoles">You must be logged in as another admin to remove the 'admin' role.</p>
+        </div>
+        <div class="form-group"  [ngClass]="{'has-error': email.touched && !email.valid, 'has-success': email.valid}">
+            <label for="email">Email</label>
+            <input [ngFormControl]="editUserForm.controls['email']" type="text" class="form-control" required />
+        </div>
+        <div class="form-group"  [ngClass]="{'has-error': fname.touched && !fname.valid, 'has-success': fname.valid}">
+            <label for="fname">First Name</label>
+            <input [ngFormControl]="editUserForm.controls['fname']" type="text" class="form-control" required />
+        </div>
+        <div class="form-group"  [ngClass]="{'has-error': lname.touched && !lname.valid, 'has-success': lname.valid}">
+            <label for="lname">Last Name</label>
+            <input [ngFormControl]="editUserForm.controls['lname']"  type="text" class="form-control" required />
+        </div>
+        <button type="submit" [disabled]="!editUserForm.valid" class="btn btn-danger btn-lg">
+            <span *ngIf="!submitted">Save Changes</span>
+            <span *ngIf="submitted">Saving Changes ...</span>
+        </button>
+    </form>

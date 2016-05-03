@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Login</h1>
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+        <div *ngIf="error" class="alert alert-danger">That is not a valid login. Please try again!</div>
+        <div class="form-group" [ngClass]="{'has-error': name.touched && !name.valid, 'has-success': name.valid}">
+            <label for="name">Username</label>
+            <input [(ngModel)]="model.username" ngControl="name"  #name="ngForm" type="text" class="form-control" required />
+        
+        </div>
+        <div class="form-group"  [ngClass]="{'has-error': password.touched && !password.valid, 'has-success': password.valid}">
+            <label for="password">Password</label>
+            <input [(ngModel)]="model.password" ngControl="password"  #password="ngForm" type="password" class="form-control" required />
+        </div>
+        <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-default">
+            <span *ngIf="!submitted">Login</span>
+            <span *ngIf="submitted">Logging in ...</span>
+        </button>
+        <div class="etc-login-form">
+            <p>Forgot your password? <a [routerLink]="['/Auth/LookupAccountPassword']">Reset it</a>.</p>
+            <p>New user?  <a [routerLink]="['/Auth/Register']">Create an account</a>.</p>
+        </div>
+    </form>
+</div>

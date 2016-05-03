@@ -1,0 +1,10 @@
+ <h1>List Roles</h1>
+ <ul class="list-group">
+    <li class="list-group-item" *ngFor="#role of roles; #i=index">
+        <h4 class="list-group-heading">{{role.label}}</h4>
+        <p *ngIf="role.label != 'admin'" class="ist-group-item-text">
+            <a (click)="deleteRole(role._id)" class="btn btn-danger btn-xs">Delete</a> <a (click)="editRole(role._id)" class="btn btn-primary btn-xs">Edit</a>
+        </p>
+    </li>
+</ul>
+<p><a (click)="addRole()" class="btn btn-success">Add a Role</a></p>

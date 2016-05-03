@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>{{user.fname}}'s Profile</h1>
+    <p>Username: {{user.username}}</p>
+    <p>Name: {{user.fname}} {{user.lname}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Roles: <span *ngFor="#role of user.roles; #isLast=last">{{role.label}}{{isLast ? '' : ', '}}</span><span *ngIf="user.roles && !user.roles.length">None assigned</span></p>
+    <a (click)="editUser(user._id)" class="btn btn-success">Edit</a>
+</div>

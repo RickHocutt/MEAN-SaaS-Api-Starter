@@ -1,0 +1,17 @@
+
+    <h1>Add Role</h1>
+    <form (ngSubmit)="handleSubmit(model)" #editRoleForm="ngForm">
+        <div *ngIf="error" class="alert alert-danger">
+            <p *ngFor="#error of errors; #i=index">{{error}}</p>
+        </div>
+        <div *ngIf="success" class="alert alert-success">Role added successfully.</div>
+        <div class="form-group" [ngClass]="{'has-error': label.touched && !label.valid, 'has-success': label.valid}">
+            <label for="username">Label</label>
+            <input [(ngModel)]="model.label" ngControl="label"  #label="ngForm" type="text" class="form-control" required />
+        
+        </div>
+        <button type="submit" [disabled]="!editRoleForm.form.valid" class="btn btn-danger btn-lg">
+            <span *ngIf="!submitted">Save Changes</span>
+            <span *ngIf="submitted">Saving Changes ...</span>
+        </button>
+    </form>

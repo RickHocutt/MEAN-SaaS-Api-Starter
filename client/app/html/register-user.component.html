@@ -1,0 +1,33 @@
+
+    <h1>Register</h1>
+    <div *ngIf="success" class="alert alert-success">User added! Check your email and click the link to confirm your new account.</div>
+    <form *ngIf="!success" (ngSubmit)="handleSubmit(model)" #addUserForm="ngForm">
+        <div *ngIf="error" class="alert alert-danger">
+            <p *ngFor="#error of errors; #i=index">{{error}}</p>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': username.touched && !username.valid, 'has-success': username.valid}">
+            <label for="username">Username</label>
+            <input [(ngModel)]="model.username" ngControl="username"  #username="ngForm" type="text" class="form-control" required />
+        
+        </div>
+        <div class="form-group"  [ngClass]="{'has-error': password.touched && !password.valid, 'has-success': password.valid}">
+            <label for="password">Password</label>
+            <input [(ngModel)]="model.password" ngControl="password"  #password="ngForm" type="password" class="form-control" required />
+        </div>
+        <div class="form-group"  [ngClass]="{'has-error': email.touched && !email.valid, 'has-success': email.valid}">
+            <label for="email">Email</label>
+            <input [(ngModel)]="model.email" ngControl="email"  #email="ngForm" type="text" class="form-control" required />
+        </div>
+        <div class="form-group"  [ngClass]="{'has-error': fname.touched && !fname.valid, 'has-success': fname.valid}">
+            <label for="fname">First Name</label>
+            <input [(ngModel)]="model.fname" ngControl="fname"  #fname="ngForm" type="text" class="form-control" required />
+        </div>
+        <div class="form-group"  [ngClass]="{'has-error': lname.touched && !lname.valid, 'has-success': lname.valid}">
+            <label for="lname">Last Name</label>
+            <input [(ngModel)]="model.lname" ngControl="lname"  #lname="ngForm" type="text" class="form-control" required />
+        </div>
+        <button type="submit" [disabled]="!addUserForm.form.valid" class="btn btn-danger btn-lg">
+            <span *ngIf="!submitted">Create Account</span>
+            <span *ngIf="submitted">Creating Account ...</span>
+        </button>
+    </form>

@@ -1,0 +1,29 @@
+{
+  "name": "starter-api",
+  "version": "0.0.1",
+  "description": "A starter kit for creating restful APIs with user authentication via JWT tokens.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "authentication",
+    "API",
+    "authorization"
+  ],
+  "author": "Harvey Ramer",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^5.7.0",
+    "lodash": "^4.3.0",
+    "mongoose": "^4.4.6",
+    "morgan": "^1.7.0",
+    "password-hash": "^1.2.2",
+    "sendgrid": "^2.0.0",
+    "underscore": "^1.8.3"
+  }
+}
