@@ -5,7 +5,7 @@ A starter API with Node, Express, MongoDB, JWT tokens, Angular 2, TypeScript and
 Run `npm install` in /api and /client directories.
 
 ### Dependencies
-This project requires MongoDB, Node.js, and Angular2. You will need to [install MongoDB]. 
+This project requires MongoDB, Node.js, and Angular2. You will need to [install MongoDB] and [Node.js]. 
 You may also need to do some extra work to get Angular2 working on your system, but in theory, NPM install should take care of that dependency. 
 
 ### Configure
@@ -29,7 +29,7 @@ After running the first run script, visit your client (out of the box at [localh
 [localhost:8180]: http://localhost:8180
 ![homeImage][]
 [homeImage]: https://raw.githubusercontent.com/harveyramer/sass-api-starter/master/home-page.png
-
 [install MongoDB]: https://docs.mongodb.org/manual/installation/
+[Node.js]: https://nodejs.org/en/download/
 
 Please let me know if you have problems with installation at harvey[at]harveyramer[dot]com.
