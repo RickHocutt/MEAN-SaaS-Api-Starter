@@ -1,4 +1,4 @@
-# SaaS-Api-Starter
+# MEAN SaaS Api Starter
 A starter API with Node, Express, MongoDB, JWT tokens, Angular 2, TypeScript and Bootstrap 3 that allows authentication and user management and can be used to start your app.
 
 ## Install
