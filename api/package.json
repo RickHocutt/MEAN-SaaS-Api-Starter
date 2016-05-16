@@ -24,6 +24,7 @@
     "morgan": "^1.7.0",
     "password-hash": "^1.2.2",
     "sendgrid": "^2.0.0",
+    "stripe": "^4.6.0",
     "underscore": "^1.8.3"
   }
 }
