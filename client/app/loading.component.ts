@@ -35,6 +35,10 @@ export class LoadingComponent implements OnActivate {
             }
         );
     };
+    handleError = function () {
+        this.logout();
+        this.goHome();
+    }
     routerOnActivate(next: ComponentInstruction, prev: ComponentInstruction) {
         return new Promise(resolve => {
             this._logger.log('Router activated.' + this.redirectTo.indexOf('/confirmUser/') + ' ' + this.redirectTo);
@@ -46,7 +50,11 @@ export class LoadingComponent implements OnActivate {
                 this.auth.refresh()
                     .subscribe(
                         (res) => {
-                            if (res.confirmed) {
+                            if (!res) {
+                                resolve(true);
+                                this.handleError();
+                            }
+                            else if (res.confirmed) {
                                 this._logger.log('has user');
                                 this._logger.log('redirectTo: ' + this.redirectTo);
                                 resolve(true);
@@ -58,9 +66,8 @@ export class LoadingComponent implements OnActivate {
                             }
                         },
                         (err) => {
-                            this.logout();
                             resolve(true);
-                            this.goHome();
+                            this.handleError();
                         }
                     );
             }
