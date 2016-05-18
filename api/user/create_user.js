@@ -18,7 +18,7 @@ function createUser(req,res, jwt, app) {
         var err = user.validate(function (err) {
             if (!err) {
                 user.confirmed = false;
-            // Add to database
+                // Add to database
                 user.save(function (err){
                     if (!err) {
                         console.log('User added');
