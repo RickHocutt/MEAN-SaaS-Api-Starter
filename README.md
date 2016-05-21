@@ -9,6 +9,8 @@ This project requires MongoDB, Node.js, and Angular2. You will need to [install 
 You may also need to do some extra work to get Angular2 working on your system, but in theory, NPM install should take care of that dependency. 
 
 ### Configure
+For the API configuration, copy `/api/config-example.js` to `/api/config.js` before you configure your software.
+
 The API endpoint is defined for the client in `/client/app/config.ts`.
 
 The client endpoint is defined for the API in `/api/config.js` as `clientUrl`. That same file contains a `secret` used to sign the JWT tokens used by your app along with some other self-explanatory settings for JWT. 
