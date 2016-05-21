@@ -10,12 +10,11 @@ import { Logger } from './services/logger.service';
 import { 
     Router,
     ROUTER_PROVIDERS,
-    LocationStrategy,
-    HashLocationStrategy,
     ROUTER_BINDINGS
 } from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import 'rxjs/add/operator/map';
+import {LocationStrategy, HashLocationStrategy} from 'angular2/platform/common'
 
 
 bootstrap(AppComponent, [

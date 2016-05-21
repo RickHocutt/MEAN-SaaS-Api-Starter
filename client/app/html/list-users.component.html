@@ -11,12 +11,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="#user of users; #i=index">
+                    <tr *ngFor="let user of users; let i=index">
                         <td>{{user.username}}</td>
                         <td>{{user.fname}}</td>
                         <td>{{user.lname}}</td>
                         <td>{{user.email}}</td>
-                        <td><span *ngFor="#role of user.roles; #isLast=last">{{role.label}}{{isLast ? '' : ', '}}</span><span *ngIf="user.roles && !user.roles.length">None assigned</span></td>
+                        <td><span *ngFor="let role of user.roles; let isLast=last">{{role.label}}{{isLast ? '' : ', '}}</span><span *ngIf="user.roles && !user.roles.length">None assigned</span></td>
                         <td><a *ngIf="currentUser._id !== user._id" (click)="deleteUser(user._id)" class="btn btn-danger btn-xs">Delete</a> <a (click)="editUser(user._id)" class="btn btn-primary btn-xs">Edit</a></td>
                     </tr>
                 </tbody>

@@ -62,3 +62,35 @@ export class RegisterComponent {
         return JSON.stringify(obj);
     }
 } 
+/*onSubmit(form):void{
+    this.form = form;
+    this.clearError();
+    if(form.valid){
+        this.waiting = true;
+        Stripe.card.createToken({
+            number: form.value.card_number,
+            cvc: form.value.card_cvc,
+            exp_month: form.value.card_expiry_month,
+            exp_year: form.value.card_expiry_year
+        }, this.stripeResponseHandler.bind(this));
+    }
+}
+
+stripeResponseHandler(status, response):void {
+    if (response.error) {
+        this.error = 'The card provided is not valid:' + response.error.message;
+    } else {
+        // response contains id and card, which contains additional card details
+        var token = response.id;
+        // reset the error
+        const data = {
+            whatever: this.form.value.whatever,
+            stripeToken: token
+        };
+        this._httpService.enrollCourse(data)
+            .subscribe(
+                data => this.handleSuccess(data, this.form),
+                error => this.handleError(error)
+        )
+    }
+};*/

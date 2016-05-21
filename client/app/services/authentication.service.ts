@@ -4,7 +4,7 @@ import {User} from '../models/user';
 import {Role} from '../models/role';
 import {Observable} from 'rxjs/Observable';
 import {Logger} from './logger.service';
-import 'rxjs/add/observable/fromArray'; // May change to /rxjs/add/observable/of https://github.com/ReactiveX/RxJS/issues/1113
+import 'rxjs/add/observable/of'; // May change to /rxjs/add/observable/of https://github.com/ReactiveX/RxJS/issues/1113
 import {Config} from '../config';
 
 @Injectable()

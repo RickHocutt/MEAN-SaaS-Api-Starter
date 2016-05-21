@@ -2,7 +2,7 @@
     <h1>Edit</h1>
     <form (ngSubmit)="handleSubmit()" [ngFormModel]="editUserForm">
         <div *ngIf="error" class="alert alert-danger">
-            <p *ngFor="#error of errors; #i=index">{{error}}</p>
+            <p *ngFor="let error of errors; let i=index">{{error}}</p>
         </div>
         <div *ngIf="success" class="alert alert-success">User updated successfully.</div>
         <div class="form-group" [ngClass]="{'has-error': username.touched && !username.valid, 'has-success': username.valid}">

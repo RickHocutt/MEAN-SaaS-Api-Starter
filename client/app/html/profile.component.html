@@ -3,6 +3,6 @@
     <p>Username: {{user.username}}</p>
     <p>Name: {{user.fname}} {{user.lname}}</p>
     <p>Email: {{user.email}}</p>
-    <p>Roles: <span *ngFor="#role of user.roles; #isLast=last">{{role.label}}{{isLast ? '' : ', '}}</span><span *ngIf="user.roles && !user.roles.length">None assigned</span></p>
+    <p>Roles: <span *ngFor="let role of user.roles; let isLast=last">{{role.label}}{{isLast ? '' : ', '}}</span><span *ngIf="user.roles && !user.roles.length">None assigned</span></p>
     <a (click)="editUser(user._id)" class="btn btn-success">Edit</a>
 </div>
