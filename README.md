@@ -17,6 +17,8 @@ The client endpoint is defined for the API in `/api/config.js` as `clientUrl`. T
 
 To successfully send email, you will need to visit http://www.sendgrid.com to request an API key and configure your free account. Enter the key in `/api/config.js` `sendgridKey`.
 
+To accept payments, you must request a Stripe API key and add the production and test keys to `/api/config.js`.
+
 The MongoDB connection also must be configured in `/api/config.js` using the `database` property.
 
 ### Run
