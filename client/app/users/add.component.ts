@@ -67,10 +67,10 @@ export class AddComponent {
                     if (!doc.error) {
                         this.availableRoles = doc.data;
                     } else {
-                        this.setErrorMessages(doc.error);
+                        this.setErrorMessages(doc.error, 'There was an error getting roles.');
                     }
                 },
-                (err) => this.setErrorMessages({error: 'Failed to retrieve roles.'})
+                (err) => this.setErrorMessages(err, 'Failed to retrieve roles.')
             );
     }
     areEqual = (group:ControlGroup) => {

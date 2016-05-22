@@ -1,19 +1,17 @@
 
-    <h1>Register</h1>
+    <h1>Start Your Free Trial!</h1>
+    <p>You'll be starting a 7 day free trial.</p>
     <div *ngIf="success" class="alert alert-success">User added! Check your email and click the link to confirm your new account.</div>
     <form *ngIf="!success" (ngSubmit)="handleSubmit(model)" #addUserForm="ngForm">
         <div *ngIf="error" class="alert alert-danger">
             <p *ngFor="let error of errors; let i=index">{{error}}</p>
         </div>
-        <div class="form-group" [ngClass]="{'has-error': username.touched && !username.valid, 'has-success': username.valid}">
-            <label for="username">Username</label>
-            <input [(ngModel)]="model.username" ngControl="username"  #username="ngForm" type="text" class="form-control" required />
-        
-        </div>
-        <div class="form-group"  [ngClass]="{'has-error': password.touched && !password.valid, 'has-success': password.valid}">
-            <label for="password">Password</label>
-            <input [(ngModel)]="model.password" ngControl="password"  #password="ngForm" type="password" class="form-control" required />
-        </div>
+        <h2>1. Your payment options</h2>
+            <div class="btn-group" role="group" data-toggle="buttons">
+                <label class="btn btn-default active"><input name="payment-options" id="payment-monthly" value="monthly" type="radio">Monthly - <b class="text-info">$25</b></label>
+                <label class="btn btn-default"><input name="payment-options" id="payment-yearly" value="yearly" type="radio">Yearly -  <b class="text-success">$250</b> <span class="badge">Two Months Free</span></label>
+            </div>
+        <h2>2. Your basic information</h2>
         <div class="form-group"  [ngClass]="{'has-error': email.touched && !email.valid, 'has-success': email.valid}">
             <label for="email">Email</label>
             <input [(ngModel)]="model.email" ngControl="email"  #email="ngForm" type="text" class="form-control" required />
@@ -26,8 +24,47 @@
             <label for="lname">Last Name</label>
             <input [(ngModel)]="model.lname" ngControl="lname"  #lname="ngForm" type="text" class="form-control" required />
         </div>
-        <button type="submit" [disabled]="!addUserForm.form.valid" class="btn btn-danger btn-lg">
+        <h2>3. Your account credentials</h2>
+        <div class="form-group" [ngClass]="{'has-error': username.touched && !username.valid, 'has-success': username.valid}">
+            <label for="username">Username</label>
+            <input [(ngModel)]="model.username" ngControl="username"  #username="ngForm" type="text" class="form-control" required />
+        </div>
+        <div class="form-group"  [ngClass]="{'has-error': password.touched && !password.valid, 'has-success': password.valid}">
+            <label for="password">Password</label>
+            <input [(ngModel)]="model.password" ngControl="password"  #password="ngForm" type="password" class="form-control" required />
+        </div>
+        <h2>4. Your payment information</h2>
+        <label>Credit Card</label>
+        <div class="form-inline">
+            <div class="form-group"  [ngClass]="{'has-error': card_number.touched && !card_number.valid, 'has-success': card_number.valid}">
+                <label for="card_number" class="sr-only">Credit Card Number</label>
+                <input placeholder="Card Number" [(ngModel)]="card.number" ngControl="card_number"  #card_number="ngForm" type="text" class="form-control" required />
+            </div>
+            <div class="form-group"  [ngClass]="{'has-error': card_cvc.touched && !card_cvc.valid, 'has-success': card_cvc.valid}">
+                <label for="card_cvc" class="sr-only">CVV</label>
+                <input placeholder="CVV" [(ngModel)]="card.cvc" ngControl="card_cvc"  #card_cvc="ngForm" type="text" class="form-control" required />
+            </div>
+        </div>
+        <label class="margin-top">Expires</label>
+        <div class="form-inline">
+            <div class="form-group"  [ngClass]="{'has-error': card_expiry_month.touched && !card_expiry_month.valid, 'has-success': card_expiry_month.valid}">
+            
+                <label for="card_expiry_month" class="sr-only">Month</label>
+                <select class="form-control" required [(ngModel)]="card.expiry_month" ngControl="card_expiry_month"  #card_expiry_month="ngForm">
+                    <option *ngFor="let m of months" [value]="m">{{m.id}} - {{m.name}}</option>
+                </select>
+            </div>
+            <div class="form-group" [ngClass]="{'has-error': card_expiry_year.touched && !card_expiry_year.valid, 'has-success': card_expiry_year.valid}">
+                <label for="card_expiry_year" class="sr-only">Year</label>
+                <select class="form-control" required [(ngModel)]="card.expiry_year" ngControl="card_expiry_year"  #card_expiry_year="ngForm">
+                    <option *ngFor="let y of years" [value]="y">{{y}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="margin-top buffer-top">
+        <button type="submit" [disabled]="!addUserForm.form.valid" class="btn btn-success btn-lg">
             <span *ngIf="!submitted">Create Account</span>
             <span *ngIf="submitted">Creating Account ...</span>
         </button>
+        </div>
     </form>

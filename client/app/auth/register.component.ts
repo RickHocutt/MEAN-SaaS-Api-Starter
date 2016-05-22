@@ -14,16 +14,40 @@ import { CanActivate, ComponentInstruction} from 'angular2/router';
 
 export class RegisterComponent {
     model:User;
+    card:any;
     errors:Array<String>;
+    months:Array<any>;
+    years:Array<number>;
     constructor(
         private _userService:UserService,
         private _logger:Logger
     ){ 
+        this.card = {};
         this.model = new User('','');
+        this.months = [
+        {id: 1, name: 'January'},
+        {id: 2, name: 'February'},
+        {id: 3, name: 'March'},
+        {id: 4, name: 'April'},
+        {id: 5, name: 'May'},
+        {id: 6, name: 'June'},
+        {id: 7, name: 'July'},
+        {id: 8, name: 'August'},
+        {id: 9, name: 'September'},
+        {id: 10, name: 'October'},
+        {id: 11, name: 'November'},
+        {id: 12, name: 'December'}
+    ];
+    this.years = [
+        2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030
+    ]
+    this.card.expiry_month = this.months[0];
+    this.card.expiry_year = this.years[0];
     }
     submitted = false;
     success = false;
     error = null;
+
     handleSubmit = function (model) {
         this.submitted = true;
         this.success = false;
@@ -62,7 +86,7 @@ export class RegisterComponent {
         return JSON.stringify(obj);
     }
 } 
-/*onSubmit(form):void{
+/*onSubmit(form):void{ 
     this.form = form;
     this.clearError();
     if(form.valid){

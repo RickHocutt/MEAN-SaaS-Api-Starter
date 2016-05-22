@@ -27,8 +27,8 @@
         </div>
         <div class="form-group">  <!--[ngClass]="{'has-error': roles.touched && !roles.valid, 'has-success': roles.valid}">-->
             <label>Roles</label>
-            <p><span *ngFor="#role of roles; #isLast=last">{{role.label}}{{isLast ? '' : ', '}}</span><span *ngIf="roles && !roles.length">None assigned</span> <a *ngIf="!changingRoles && isAdmin" class="btn btn-xs btn-default" (click)="goToChangeRoles()">Change roles</a></p>
-                <label *ngFor="#option of availableRoles">
+            <p><span *ngFor="let role of roles; let isLast=last">{{role.label}}{{isLast ? '' : ', '}}</span><span *ngIf="roles && !roles.length">None assigned</span> <a *ngIf="!changingRoles && isAdmin" class="btn btn-xs btn-default" (click)="goToChangeRoles()">Change roles</a></p>
+                <label *ngFor="let option of availableRoles">
                     <input type="checkbox" [disabled]="currentUserIsAdmin() && option.label == 'admin'" [checked]="roleAlreadyAdded(option)" (change)="updateRoles(option, rolecb.checked)" #rolecb [value]="option._id" />{{option.label}}
                 </label>
                 <p class="helper-text" *ngIf="currentUserIsAdmin() && availableRoles">You must be logged in as another admin to remove the 'admin' role.</p>
